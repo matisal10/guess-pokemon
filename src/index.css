@@ -1,0 +1,33 @@
+main {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 24px;
+}
+
+img {
+  image-rendering: pixelated;
+  width: 200px;
+  height: 200px;
+  filter: brightness(0.0);
+}
+
+.containerImg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text{
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.containerInput{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
