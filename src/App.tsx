@@ -9,6 +9,7 @@ function App() {
   const [pokemon, setPokemon] = useState<Pokemon>();
   const [name, setName] = useState('')
   const [flag, setFlag] = useState<boolean>(true)
+  const [flagReset, setFlagReset] = useState(false)
 
   const getPokemon = async () => {
     const randomPokemon = await api.random();
@@ -23,25 +24,41 @@ function App() {
   const validatorText = () => {
     if (pokemon?.name === name) {
       const img = document.getElementById('img')
-      const text = document.getElementById('text')
-      if (img && text) {
+      // const text = document.getElementById('text')
+      if (img) {
         img.style.filter = "none"
-        text.style.display = ""
+        // text.style.display = ""
       }
+      setFlagReset(true)
+      setFlag(true)
     }
-    else{
+    else {
       setFlag(false)
+    }
+  }
+
+  const reset = () => {
+    const img = document.getElementById('img')
+    // const text = document.getElementById('text')
+    if (img) {
+      img.style.filter = "brightness(0.0)"
+      // text.style.display = "none"
+      setFlag(true)
+      setName('')
+      getPokemon()
+      setFlagReset(false)
     }
   }
 
 
   return (
-    <main>
-      <span className="nes-text text">Quien es este Pokemon?</span>
+    <main >
+
       {pokemon ?
         <div className="containerImg">
+          {/* <span id="text" className="nes-text " style={{ display: "none" }}>{pokemon?.name}</span> */}
           <img id="img" src={pokemon.image} />
-          <span id="text" className="nes-text is-primary" style={{ paddingBottom: "20px" , display:"none" }}>{pokemon?.name}</span>
+          
         </div>
         :
         <></>
@@ -52,12 +69,24 @@ function App() {
           :
           <span className="nes-text is-error" style={{ paddingBottom: "20px" }}>Intenta de nuevo</span>
       }
-      <div className="nes-field containerInput">
-        <input type="text" id="name_field" className="nes-input"
-          value={name}
-          onChange={(event) => setName(event.target.value)} />
-        <button type="button" className="nes-btn is-primary" onClick={validatorText}>Adivinar</button>
-      </div>
+      {
+        flagReset ?
+          <div className="nes-container is-rounded is-dark containerReset">
+            <span className="nes-text ">Muy bien, Adivinaste!</span>
+            <button type="button" className="nes-btn " onClick={reset}>Volver A Jugar</button>
+            
+          </div>
+          : 
+          <div>
+          <span className="nes-text text">Quien es este Pokemon?</span>
+          <div className="nes-field containerInput">
+            <input type="text" id="name_field" className="nes-input"
+              value={name}
+              onChange={(event) => setName(event.target.value)} />
+            <button type="button" className="nes-btn is-primary" onClick={validatorText}>Adivinar</button>
+          </div>
+        </div>
+      }
     </main>
   )
 

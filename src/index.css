@@ -5,12 +5,16 @@ main {
   min-height: 100vh;
   flex-direction: column;
   padding: 24px;
+  background-image: url('./assets/Pokemon-forest-by-BlazingIfrit-Fur-Affinity-dot-net.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
 }
 
 img {
   image-rendering: pixelated;
-  width: 200px;
-  height: 200px;
+  /* width: 200px; */
+  height: 300px;
   filter: brightness(0.0);
 }
 
@@ -30,4 +34,11 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.containerReset{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
