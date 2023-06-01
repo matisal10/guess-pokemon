@@ -14,7 +14,6 @@ function App() {
   const getPokemon = async () => {
     const randomPokemon = await api.random();
     setPokemon(randomPokemon);
-    console.log(randomPokemon)
   }
 
   useEffect(() => {
@@ -39,7 +38,6 @@ function App() {
 
   const handleChange = (e: any) => {
     const modifiedString = e.currentTarget.value.replace(".", "");
-    // console.log(modifiedString.toLowerCase().replace(/\s/g, ''))
     setName(modifiedString.toLowerCase().replace(/\s/g, ''))
   }
 
