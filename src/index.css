@@ -8,7 +8,7 @@ main {
   background-image: url('./assets/Pokemon-forest-by-BlazingIfrit-Fur-Affinity-dot-net.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
 }
 
 img {
@@ -18,25 +18,31 @@ img {
   filter: brightness(0.0);
 }
 
-.containerImg{
+.container-table {
+  top: 10px;
+  left: 10px;
+  position: absolute;
+}
+
+.containerImg {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-.text{
+.text {
   font-size: x-large;
   font-weight: bold;
 }
 
-.containerInput{
+.containerInput {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.containerReset{
+.containerReset {
   display: flex;
   align-items: center;
   justify-content: center;
