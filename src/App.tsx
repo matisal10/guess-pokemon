@@ -18,7 +18,7 @@ function App() {
   const getPokemon = async () => {
     const randomPokemon = await api.random();
     setPokemon(randomPokemon);
-    console.log(randomPokemon)
+    // console.log(randomPokemon)
   }
 
   useEffect(() => {
