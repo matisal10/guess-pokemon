@@ -37,6 +37,12 @@ function App() {
     }
   }
 
+  const handleChange = (e: any) => {
+    const modifiedString = e.currentTarget.value.replace(".", "");
+    // console.log(modifiedString.toLowerCase().replace(/\s/g, ''))
+    setName(modifiedString.toLowerCase().replace(/\s/g, ''))
+  }
+
   const reset = () => {
     const img = document.getElementById('img')
     // const text = document.getElementById('text')
@@ -58,7 +64,7 @@ function App() {
         <div className="containerImg">
           {/* <span id="text" className="nes-text " style={{ display: "none" }}>{pokemon?.name}</span> */}
           <img id="img" src={pokemon.image} />
-          
+
         </div>
         :
         <></>
@@ -74,18 +80,18 @@ function App() {
           <div className="nes-container is-rounded is-dark containerReset">
             <span className="nes-text ">Muy bien, Adivinaste!</span>
             <button type="button" className="nes-btn " onClick={reset}>Volver A Jugar</button>
-            
+
           </div>
-          : 
+          :
           <div>
-          <span className="nes-text text">Quien es este Pokemon?</span>
-          <div className="nes-field containerInput">
-            <input type="text" id="name_field" className="nes-input"
-              value={name}
-              onChange={(event) => setName(event.target.value)} />
-            <button type="button" className="nes-btn is-primary" onClick={validatorText}>Adivinar</button>
+            <span className="nes-text text">Quien es este Pokemon?</span>
+            <div className="nes-field containerInput">
+              <input type="text" id="name_field" className="nes-input"
+                value={name}
+                onChange={(e) => handleChange(e)} />
+              <button type="button" className="nes-btn is-primary" onClick={validatorText}>Adivinar</button>
+            </div>
           </div>
-        </div>
       }
     </main>
   )
